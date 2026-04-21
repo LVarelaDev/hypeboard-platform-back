@@ -5,9 +5,10 @@ import { VideoDTO } from '../dto/video.dto';
 
 @Injectable()
 export class VideosRepository {
-  getRawVideos(): VideoDTO {
+  getRawVideos(): VideoDTO[] {
     const filePath = path.join(process.cwd(), 'src/data/mock-youtube-api.json');
     const file = fs.readFileSync(filePath, 'utf-8');
-    return JSON.parse(file) as VideoDTO;
+    const dataParsed = JSON.parse(file) as { items: VideoDTO[] };
+    return dataParsed.items;
   }
 }
