@@ -1,4 +1,12 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { VideosService } from './application/videos/videos.service';
 
 @Controller('videos')
-export class VideosController {}
+export class VideosController {
+  constructor(private readonly videosService: VideosService) {}
+
+  @Get()
+  getVideos(): any {
+    return this.videosService.getVideos();
+  }
+}
