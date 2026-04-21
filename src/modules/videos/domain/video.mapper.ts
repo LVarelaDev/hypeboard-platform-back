@@ -4,7 +4,7 @@ import { DateUtil } from './date.util';
 import { HypeCalculator } from './hype-calculator';
 
 export class VideoMapper {
-  static toResponse(video: YoutubeVideo): VideoResponseDto {
+  static toResponse(video: YoutubeVideo): Omit<VideoResponseDto, 'isCrown'> {
     return {
       thumbnail: video.snippet?.thumbnails?.high?.url ?? null,
       title: video.snippet?.title ?? 'Sin título',

@@ -12,6 +12,11 @@ export class VideosService {
 
     const processed = rawVideos.map((video) => VideoMapper.toResponse(video));
 
-    return processed.sort((a, b) => b.hype - a.hype);
+    const sorted = processed.sort((a, b) => b.hype - a.hype);
+
+    return sorted.map((video, index) => ({
+      ...video,
+      isCrown: index === 0 && video.hype > 0,
+    }));
   }
 }

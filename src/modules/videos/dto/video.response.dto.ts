@@ -4,4 +4,5 @@ export interface VideoResponseDto {
   author: string;
   publishedAt: string;
   hype: number;
+  isCrown: boolean;
 }
