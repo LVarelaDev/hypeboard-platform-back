@@ -19,7 +19,7 @@ export interface Statistics {
   commentCount: string;
 }
 
-export interface VideoDTO {
+export interface YoutubeVideo {
   id: string;
   snippet: Snippet;
   statistics: Statistics;
